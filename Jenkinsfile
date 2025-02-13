@@ -21,8 +21,9 @@ pipeline {
                 sh '''
                     echo "with Docker"
                     npm --version
-                    ls -al
+                    npm ci
                     npm run build
+                    la -al
                 '''    
             }
         }        
