@@ -4,7 +4,10 @@ pipeline {
     stages {
         stage('without Docker') {
             steps {
-                sh 'echo "without Docker"'
+                sh '''
+                    echo "without Docker"
+                    ls -lart
+                '''
             }
         }
         stage('with Docker') {
@@ -15,8 +18,11 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo "with Docker"'
-                sh 'npm --version'
+                sh '''
+                    echo "with Docker"
+                    npm --version
+                    ls -al
+                    npn bulid
             }
         }        
     }
