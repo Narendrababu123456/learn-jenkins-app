@@ -23,6 +23,7 @@ pipeline {
                     npm --version
                     ls -al
                     npn bulid
+                '''    
             }
         }        
     }
