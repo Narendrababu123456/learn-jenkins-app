@@ -22,7 +22,7 @@ pipeline {
                     echo "with Docker"
                     npm --version
                     ls -al
-                    npn bulid
+                    npm run build
                 '''    
             }
         }        
