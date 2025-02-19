@@ -71,7 +71,7 @@ pipeline {
             steps {
                 echo 'Netilfy'
                 sh '''
-                    npm install netlify
+                    npm install netlify-cli
                     node_modules/.bin/netlify --version
                     echo "site id $NETILFY_SITE_ID"
                     node_modules/.bin/netlify status
