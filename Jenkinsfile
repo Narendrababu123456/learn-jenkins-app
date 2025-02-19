@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        NETILFY_SITE_ID = '2e4ab58f-715c-4d63-906b-e8b5984e05e8'
+    }
 
     stages {
         stage('build') {
@@ -57,6 +60,24 @@ pipeline {
                 '''
             }
         }
+        stage('Deploy') {
+            agent {
+                docker {
+                    image 'node:18-alpin'
+                    reuseNode true
+                }
+            }
+        
+            steps {
+                echo 'Netilfy'
+                sh '''
+                    npm install netlify
+                    node_modules/.bin/netlify --version
+                    echo "site id $NETILFY_SITE_ID"
+                    node_modules/.bin/netlify status
+                '''
+            }
+        }        
     }    
     post {
         always {
